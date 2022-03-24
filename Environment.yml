@@ -1,0 +1,4 @@
+name: flight_booking
+channels:
+- conda-forge
+dependencies: 
