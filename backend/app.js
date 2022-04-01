@@ -4,8 +4,8 @@ import cors from "cors"
 import Amadeus from 'amadeus'
 
 const amadeus = new Amadeus({
-    clientId: 'IzP8j00JqMXT7iGGqscOw88tQZ0tdLI3',
-    clientSecret: 'MP4JeeGCxyLURPwZ',
+    clientId: API_KEY,
+    clientSecret: API_SECRET,
 });
 
 const app = express();
