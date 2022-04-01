@@ -6,7 +6,16 @@ This challenge consists of two different parts.
 
 The objective of the first part of this challenge represents a problem close to a real scenario where a broken frontend applcation needs to be fixed.
 
-First of all you will need to install the dependencies of the project following the intructcions bellow:
+### Install API KEYS 
+
+In the file backend/app.js, replace API_KEY  on line 7 and API_SECRET on line 8 by the values sent by e-mail:
+
+                6 const amadeus = new Amadeus({
+                7     clientId: API_KEY,
+                8     clientSecret: API_SECRET,
+                9 });
+
+After that you will need to install the dependencies of the project following the intructcions bellow:
 
 ### 1 - Install NODE.js
 
