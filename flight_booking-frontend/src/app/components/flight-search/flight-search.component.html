@@ -20,7 +20,7 @@
             <label for=""><h3>To where:</h3></label>
             <input type="text" class="form-control" name="to" [(ngModel)]="to" (keypress)="handleToLocation()">
             <small>City or Airport search E.g. New york</small>
-            <div class="card mb-3 mt-3" *ngFor="let Location of toLocation">
+            <div class="card mb-3 mt-3" *ngFor="let Location of toLocation" (click)="handleDestination(Location)">
                 <div class="card-header"><b>Name:</b> {{ Location.name }}</div>
                 <div class="card-body">City Name: {{ Location.address.cityName }}
                     <br>
@@ -51,7 +51,7 @@
                             <em>(Terminal: {{ i.departure.terminal }})</em>
                             &nbsp;
                             <strong>Arrival:</strong> {{ i.arrival.iataCode }} <strong>at</strong> {{ i.arrival.at }}
-                            <em>(Terminal: {{ i.arrival.terminal }})
+                            <em>(Terminal: {{ i.arrival.terminal }})</em>
                             &nbsp;
                             <strong>Number of stops:</strong> {{ i.numberOfStops }}
                         </p>
@@ -59,7 +59,7 @@
                         <h5>Enter your details:</h5>
                         <input type="text" name="first" placeholder="Your first Name" [(ngModel)]="first" class="form-control">
                         <br>
-                        <input type="button" name="last" placeholder="Your Last Name" [(ngModel)]="last" class="form-control">
+                        <input type="text" name="last" placeholder="Your Last Name" [(ngModel)]="last" class="form-control">
                     </div>
                     <div class="card-footer"><button class="btn btn-warning" (click)="onBookFlight(flight)" [ngStyle]="{'width': '100%'}">Book Flight</button></div>
               </div>

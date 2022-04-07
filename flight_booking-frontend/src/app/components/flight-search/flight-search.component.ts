@@ -8,6 +8,7 @@ export class FlightSearchComponent implements OnInit {
 from: any = "";
 fromLocation: any = [];
 origin: any;
+toLocationTemplate: boolean = false;
 fromLocationTemplate: boolean = true;
 
 constructor() { }
