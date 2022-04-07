@@ -174,5 +174,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inaciomatheus/Gol_Challenge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/inaciomatheus/Gol_Challenge/issues"
+  },
+  "homepage": "https://github.com/inaciomatheus/Gol_Challenge#readme"
 }
