@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-flight-search',
   templateUrl: './flight-search.component.html',
@@ -64,7 +66,11 @@ onFindFlight() {
     })
       .then(response => response.json())
       .then(data => {
-        this.flights = data.data
+        this.flights = data.data.map(function(flight: any) {
+          var duration  = moment.duration(flight.itineraries[0].duration);
+          flight.itineraries[0].duration =  (duration.hours() + 24*duration.days()) + " hours and " + duration.minutes() + " minutes";
+          return flight;
+        })
         console.log(this.flights)
         this.departureDateTemplate = false
         this.flightTemplate = true
