@@ -1,12 +1,18 @@
-
-<h1><strong>Find flight deals around the world</strong></h1>
-<hr>
+<div>
+    <h1 class="page header">
+        <img class="header logo image" src="https://www.voegol.com.br/themes/custom/voegol/images/logos/logo-gol.svg">
+        &nbsp;<span class="header text detail">///</span>&nbsp;
+        <strong>Find flight deals around the world</strong>
+    </h1>
+    <img class="divider image" src="https://static.voegol.com.br/voegol/2021-12-16-16/separador_titulo.png">
+</div>
 <form>
     <div *ngIf="fromLocationTemplate">
         <label for=""><h3>From where:</h3></label>
-        <input type="text" class="form-control" name="from" [(ngModel)]="from" (keypress)="handleFromLocation()">
+        <input type="text" autocomplete="off" class="form-control" name="from" [(ngModel)]="from" (keypress)="handleFromLocation()">
         <small>City or Airport search E.g. London</small>
-        <div class="card mb-3 mt-3" *ngFor="let Location of fromLocation" (click)="handleOrigin(Location)">
+        <div class="test dropdown"></div>
+        <div class="card location-card mb-3 mt-3" *ngFor="let Location of fromLocation" (click)="handleOrigin(Location)">
             <div class="card-header"><b>Name:</b> {{ Location.name }}</div>
             <div class="card-body">City Name: {{ Location.address.cityName }}
                 <br>
@@ -17,9 +23,9 @@
     </div>
     <div *ngIf="toLocationTemplate">
         <label for=""><h3>To where:</h3></label>
-        <input type="text" class="form-control" name="to" [(ngModel)]="to" (keypress)="handleToLocation()">
+        <input type="text" autocomplete="off" class="form-control" name="to" [(ngModel)]="to" (keypress)="handleToLocation()">
         <small>City or Airport search E.g. New york</small>
-        <div class="card mb-3 mt-3" *ngFor="let Location of toLocation" (click)="handleDestination(Location)">
+        <div class="card location-card mb-3 mt-3" *ngFor="let Location of toLocation" (click)="handleDestination(Location)">
             <div class="card-header"><b>Name:</b> {{ Location.name }}</div>
             <div class="card-body">City Name: {{ Location.address.cityName }}
                 <br>
@@ -32,7 +38,7 @@
         <label for=""><h3>Departure Date:</h3></label>
         <input type="date" class="form-control" name="date" [(ngModel)]="date">
         <br>
-        <button class="btn btn-secondary" (click)="onFindFlight()" [ngStyle]="{'width': '100%'}">Find Flights</button>
+        <button class="btn btn-gol" (click)="onFindFlight()" [ngStyle]="{'width': '100%'}">Find Flights</button>
     </div>
     <div *ngIf="flightTemplate">
         <h3>Flight Offers:</h3>
@@ -44,7 +50,7 @@
                 Last Ticketing Date: {{ flight.lastTicketingDate }}
                 <hr>
                 <h5>Itineraries</h5>
-                Duration: {{ flight.itineraries[0].duration }}
+                <p><strong>Duration:</strong> {{ flight.itineraries[0].duration }}</p>
                 <p *ngFor="let i of flight.itineraries[0].segments">
                     <strong>Departure:</strong> {{ i.departure.iataCode }} <strong>at</strong> {{ i.departure.at }}
                     <em>(Terminal: {{ i.departure.terminal }})</em>
@@ -60,12 +66,19 @@
                 <br>
                 <input type="text" name="last" placeholder="Your Last Name" [(ngModel)]="last" class="form-control">
             </div>
-            <div class="card-footer"><button class="btn btn-warning" (click)="onBookFlight(flight)" [ngStyle]="{'width': '100%'}">Book Flight</button></div>
+            <div class="card-footer"><button class="btn btn-gol" (click)="onBookFlight(flight)" [ngStyle]="{'width': '100%'}">Book Flight</button></div>
         </div>
     </div>
     <div *ngIf="booked">
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success mt-3 mb-3" role="alert">
             Successfully Booked the flight
         </div>
     </div>
 </form>
+<div *ngIf="booked; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <img class="background booked image mt-3" src="https://static.voegol.com.br/voegol/2021-12-16-16/altatemporada-02.png">
+</ng-template>
+<ng-template #elseBlock>
+    <img class="background image mt-3" src="https://static.voegol.com.br/voegol/2021-12-16-16/altatemporada-01.png">
+</ng-template>
