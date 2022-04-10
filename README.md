@@ -1,66 +1,38 @@
-# Challenge
+# Solutions
 
-This challenge consists of two different parts.
+This README file summarizes the changes made for achieving the proposed solutions on this challenge. The original README.md file is still on this repository renamed as README_OLD.md.
+
+Observation: The "app.js" file on /backend/ folder has not been changed on this repository, although it has been locally for entering the *"clientId"* and *"clientSecret"* keys provided via email, for the purpose of not exposing these information.
 
 ##  First Task
 
-The objective of the first part of this challenge represents a problem close to a real scenario where a broken frontend applcation needs to be fixed.
+For the activity of fixing the original broken frontend application, the actions/fixes applied can clearly be seen on commit ["First Task Completed (Fixing frontend application)"](https://github.com/inaciomatheus/Gol_Challenge/commit/aa8a7a9efa489f76ed5bdeddda7a98b852e12080).
 
-### Install API KEYS 
+In short, the changes made can be listed as below:
 
-In the file backend/app.js, replace API_KEY  on line 7 and API_SECRET on line 8 by the values sent by e-mail:
+- Inserting missing "onClick" event on line 23 of flight-search-component.html
+- Inserting missing closing `<em>` tag on line 54 of flight-search-component.html
+- Changing type of input on line 62 of flight-search-component.html from button to text
+- Initializing "toLocationTemplate" property, missing, on line 11 of flight-search-component.ts
 
-                6 const amadeus = new Amadeus({
-                7     clientId: API_KEY,
-                8     clientSecret: API_SECRET,
-                9 });
-
-After that you will need to install the dependencies of the project following the intructcions bellow:
-
-### 1 - Install NODE.js
-
-### 2 - Run npm init -y
-
-### 3 - Then install angular dependencies.
-
-    3.1 - Express
-    3.2 - Cors
-    3.3 - Amadeus
-    3.4 - Nodemon
-    3.5 - Angular CLI
-
-These dependecies can be installed by running the following commands in your terminal:
-
-    npm install express amadeus cors nodemon
-    npm install -g @angular/cli
-
-After installing these dependencies navigate to */backend* folder and run:
-
-    npm start
-
-You will know that the backend api is running when the following message appears:
-
-    [nodemon] 2.0.15
-    [nodemon] to restart at any time, enter `rs`
-    [nodemon] watching path(s): *.*
-    [nodemon] watching extensions: js,mjs,json
-    [nodemon] starting `node app.js`
-    Server is running on port: http://localhost:5000
-
-Now go back to the project root and navigate to */flight-booking-frontend*
-
-Try running npm start and you will receive an error message.
-
-Fix all errors and when you can run the frontend aplication from start to finish go to step two.
+*Observations:*
+- *All line references above related to commit ["First Task Completed (Fixing frontend application)"](https://github.com/inaciomatheus/Gol_Challenge/commit/aa8a7a9efa489f76ed5bdeddda7a98b852e12080)*
+- *Both files are located on the "/flight_booking-frontend/src/app/components/flight-search/" folder.*
 
 ## Second Task
 
-Using your creativity and your knowledge of user interfaces and user experience, modify the application in order to add GOL LINHAS AEREAS visual identity to it while also making it simple to use.
+Unfortunately, I was not able to make greater changes on the original application, due to the fact I just started learning more about the framework used for the frontend application, for the purpose of this challenge.
 
-The functionality must remain the same.
+However, some minor changes have been made, aiming to make the application's visuals and its elements more user-friendly, even in small details, as well as to make it look more like a Gol's application.
 
-Feel free to add any technique or technology to the project in order to achieve these goals.
+Summarizing the changes that can be seen on commits, here are listed:
+- Making sure clickable elements have the "pointer" cursor
+- Adjustments in style (colors, shapes and images), aiming to achieve a "Gol's theme"
+- Adjusting the "Duration" display format on "flights view", to ease user's reading
 
-
-
-   
+Also, just as an "possible changes" section, here are listed some changes I could not achieve this time, for more improvements on the frontend application:
+- Apply "loading elements" for the user to know when the application is fetching information
+- Apply dropdowns for the selection of locations
+- Maintain choosen inputs on the page for the user to maintain track of process
+- Develop loops and messages for wrong inputs or situations where no flights are available for the selected filters
+- etc.
